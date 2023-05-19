@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   description: MyText
   common_name: MyText
   latin_name: MyText
   specie: MyText
+  vegetation: MyText
   foliage: MyText
   mature_height: MyText
   mature_width: MyText
@@ -19,16 +19,16 @@ one:
   exposure_level: MyText
   exposure_description: MyText
   flowering: MyText
+  planting: MyText
   harvest: MyText
   pruning: MyText
-  planting: MyText
 
 two:
-  id: 1
   description: MyText
   common_name: MyText
   latin_name: MyText
   specie: MyText
+  vegetation: MyText
   foliage: MyText
   mature_height: MyText
   mature_width: MyText
@@ -42,6 +42,6 @@ two:
   exposure_level: MyText
   exposure_description: MyText
   flowering: MyText
+  planting: MyText
   harvest: MyText
   pruning: MyText
-  planting: MyText
