@@ -5,6 +5,7 @@ class CreatePlants < ActiveRecord::Migration[7.0]
       t.text :common_name
       t.text :latin_name
       t.text :specie
+      t.text :vegetation
       t.text :foliage
       t.text :mature_height
       t.text :mature_width
@@ -18,11 +19,9 @@ class CreatePlants < ActiveRecord::Migration[7.0]
       t.text :exposure_level
       t.text :exposure_description
       t.text :flowering
+      t.text :planting
       t.text :harvest
       t.text :pruning
-      t.text :planting
-
-      t.timestamps
     end
   end
 end
