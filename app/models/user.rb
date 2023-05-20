@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { minimum: 2, maximum: 30 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 30 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email address please" }
-  validates :date_of_birth, presence: true
+  validates :birthdate, presence: true
   validates :username, presence: true, uniqueness: true
 
   def remember(remember_token)
