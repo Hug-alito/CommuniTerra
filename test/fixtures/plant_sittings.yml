@@ -2,8 +2,8 @@
 
 one:
   user: one
-  plant: one
+  kept_plant: one
 
 two:
   user: two
-  plant: two
+  kept_plant: two
