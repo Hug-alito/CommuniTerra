@@ -4,10 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :location
-  has_many :ownedplants, through: :plantlist
-  has_many :plants, through: :ownedplants
+  # belongs_to :location
 
+  has_many :owned_plants
+  has_many :plants, through: :owned_plants
+  has_many :plant_sittings
+  has_many :plants_to_keep
   has_many :private_sent_messages, class_name: 'PrivateMessage', foreign_key: 'sender_id'
   has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
   has_many :comments
@@ -19,9 +21,4 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email address please" }
   validates :birthdate, presence: true
   validates :username, presence: true, uniqueness: true
-
-  def remember(remember_token)
-    remember_digest = BCrypt::Password.create(remember_token)
-    self.update(remember_digest: remember_digest)
-  end
 end

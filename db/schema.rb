@@ -10,14 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_081304) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "a_llotments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "allotment_users", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -39,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_081304) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "kept_plants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_kept_plants_on_plant_id"
+    t.index ["user_id"], name: "index_kept_plants_on_user_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "city_name"
     t.string "zip_code"
@@ -54,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_081304) do
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_owned_plants_on_plant_id"
     t.index ["user_id"], name: "index_owned_plants_on_user_id"
+  end
+
+  create_table "plant_sittings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_plant_sittings_on_plant_id"
+    t.index ["user_id"], name: "index_plant_sittings_on_user_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -109,6 +122,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_081304) do
 
   add_foreign_key "allotment_users", "allotments"
   add_foreign_key "allotment_users", "users"
+  add_foreign_key "kept_plants", "plants"
+  add_foreign_key "kept_plants", "users"
   add_foreign_key "owned_plants", "plants"
   add_foreign_key "owned_plants", "users"
+  add_foreign_key "plant_sittings", "plants"
+  add_foreign_key "plant_sittings", "users"
 end
