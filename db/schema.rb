@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_104934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
   create_table "kept_plants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "owned_plant_id", null: false
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owned_plant_id"], name: "index_kept_plants_on_owned_plant_id"
@@ -62,10 +63,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
 
   create_table "plant_sittings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "plant_id", null: false
+    t.bigint "kept_plant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plant_id"], name: "index_plant_sittings_on_plant_id"
+    t.index ["kept_plant_id"], name: "index_plant_sittings_on_kept_plant_id"
     t.index ["user_id"], name: "index_plant_sittings_on_user_id"
   end
 
@@ -126,6 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
   add_foreign_key "kept_plants", "users"
   add_foreign_key "owned_plants", "plants"
   add_foreign_key "owned_plants", "users"
-  add_foreign_key "plant_sittings", "plants"
+  add_foreign_key "plant_sittings", "kept_plants"
   add_foreign_key "plant_sittings", "users"
 end
