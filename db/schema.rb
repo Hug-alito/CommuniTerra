@@ -36,10 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
 
   create_table "kept_plants", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "plant_id", null: false
+    t.bigint "owned_plant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plant_id"], name: "index_kept_plants_on_plant_id"
+    t.index ["owned_plant_id"], name: "index_kept_plants_on_owned_plant_id"
     t.index ["user_id"], name: "index_kept_plants_on_user_id"
   end
 
@@ -122,7 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_095359) do
 
   add_foreign_key "allotment_users", "allotments"
   add_foreign_key "allotment_users", "users"
-  add_foreign_key "kept_plants", "plants"
+  add_foreign_key "kept_plants", "owned_plants"
   add_foreign_key "kept_plants", "users"
   add_foreign_key "owned_plants", "plants"
   add_foreign_key "owned_plants", "users"
