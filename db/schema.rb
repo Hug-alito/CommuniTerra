@@ -10,15 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_144340) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_081304) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "a_llotments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "allotment_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "allotment_id", null: false
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allotment_id"], name: "index_allotment_users_on_allotment_id"
+    t.index ["user_id"], name: "index_allotment_users_on_user_id"
+  end
+
+  create_table "allotments", force: :cascade do |t|
+    t.integer "size"
+    t.string "name"
+    t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "city_name"
     t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "owned_plants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "plant_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_owned_plants_on_plant_id"
+    t.index ["user_id"], name: "index_owned_plants_on_user_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -72,4 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_144340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "allotment_users", "allotments"
+  add_foreign_key "allotment_users", "users"
+  add_foreign_key "owned_plants", "plants"
+  add_foreign_key "owned_plants", "users"
 end
