@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { minimum: 2, maximum: 30 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email address please" }
   validates :date_of_birth, presence: true
-  validates :pseudo
+  validates :pseudo, presence: true
 
   def remember(remember_token)
     remember_digest = BCrypt::Password.create(remember_token)

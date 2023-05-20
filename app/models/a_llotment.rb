@@ -1,0 +1,2 @@
+class ALlotment < ApplicationRecord
+end
