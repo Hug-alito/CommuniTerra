@@ -15,7 +15,7 @@ class PlantsController < ApplicationController
   end
 
   def index
-    @plants = Plants.all
+    @plants = Plant.all
   end
 
   def edit
