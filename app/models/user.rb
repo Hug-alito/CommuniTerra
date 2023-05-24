@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
   has_many :comments
   has_many :likes
+  has_many :allotment_users
+  has_many :administered_allotments, class_name: 'Allotment', foreign_key: 'admin_id', through: :allotment_users, source: :allotment, as: :admin
+  has_many :membered_allotments,  class_name: 'Allotment', foreign_key: 'member_id', through: :allotment_users, source: :allotment, as: :member
 
   # validates :password, presence: true, length: { minimum: 8 }, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}\z/ }
   validates :first_name, presence: true, length: { minimum: 2, maximum: 30 }
