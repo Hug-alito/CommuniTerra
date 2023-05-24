@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+  before_action :authenticate_user, only: [:edit, :update]
+
   def new
     @plant = Plant.new
   end
@@ -33,5 +35,14 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
   end
 end
