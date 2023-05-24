@@ -24,9 +24,8 @@ class PlantsController < ApplicationController
     @plant = Plant.find_by(id: params[:id])
     
     if @plant.nil?
-      redirect_to plants_path
-      #mettre un message d'erreur
-    end
+      redirect_to plants_path, alert: "La plante avec l'ID spécifié n'existe pas."
+    end    
   end
 
   def edit

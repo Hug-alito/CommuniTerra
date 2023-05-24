@@ -1,2 +1,21 @@
-<h1>Plants#index</h1>
-<p>Find me in app/views/plants/index.html.erb</p>
+<!-- index.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste des plantes</title>
+  <style>
+    .plant-column {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <h1>Liste des plantes</h1>
+  <div class="plant-column">
+    <% @plants.each do |plant| %>
+      <%= link_to plant.common_name, plant_path(plant.id) %>
+    <% end %>
+  </div>
+</body>
+</html>
