@@ -12,9 +12,9 @@ class User < ApplicationRecord
   has_many :plants_to_keep
   has_many :private_sent_messages, class_name: 'PrivateMessage', foreign_key: 'sender_id'
   has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
-  has_many :posts
-  has_many :comments
-  has_many :likes
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :allotment_users
   has_many :administered_allotments, class_name: 'Allotment', foreign_key: 'admin_id', through: :allotment_users, source: :allotment, as: :admin
   has_many :membered_allotments,  class_name: 'Allotment', foreign_key: 'member_id', through: :allotment_users, source: :allotment, as: :member
