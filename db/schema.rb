@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_24_103510) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_164643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,13 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_103510) do
   end
 
   create_table "allotment_users", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "admin_id", null: false
+    t.bigint "member_id", null: false
     t.bigint "allotment_id", null: false
-    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_allotment_users_on_admin_id"
     t.index ["allotment_id"], name: "index_allotment_users_on_allotment_id"
-    t.index ["user_id"], name: "index_allotment_users_on_user_id"
+    t.index ["member_id"], name: "index_allotment_users_on_member_id"
   end
 
   create_table "allotments", force: :cascade do |t|
@@ -118,6 +119,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_103510) do
     t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", id: :serial, force: :cascade do |t|
+    t.string "topic"
+    t.text "body"
+    t.string "received_messageable_type"
+    t.bigint "received_messageable_id"
+    t.string "sent_messageable_type"
+    t.bigint "sent_messageable_id"
+    t.boolean "opened", default: false
+    t.boolean "recipient_delete", default: false
+    t.boolean "sender_delete", default: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
+    t.string "ancestry"
+    t.boolean "recipient_permanent_delete", default: false
+    t.boolean "sender_permanent_delete", default: false
+    t.datetime "opened_at", precision: nil
+    t.index ["ancestry"], name: "index_messages_on_ancestry"
+    t.index ["received_messageable_id", "received_messageable_type"], name: "acts_as_messageable_received"
+    t.index ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids"
+    t.index ["sent_messageable_id", "sent_messageable_type"], name: "acts_as_messageable_sent"
   end
 
   create_table "owned_plants", force: :cascade do |t|
@@ -202,7 +225,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_103510) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "allotment_users", "allotments"
-  add_foreign_key "allotment_users", "users"
+  add_foreign_key "allotment_users", "users", column: "admin_id"
+  add_foreign_key "allotment_users", "users", column: "member_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "kept_plants", "owned_plants"

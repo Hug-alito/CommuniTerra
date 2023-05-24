@@ -33,4 +33,15 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user.id == params[:id].to_i
   end
 
+  respond_to :html, :json
+  def new_message
+    @message = ActsAsMessageable::Message.new
+  end
+
+  def create_message
+    @to = User.find_by_email(params[:acts_as_messageable_message][:to])
+    current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body])
+    redirect_to :back, notice: "Message sent to Owner"
+  end
+
 end

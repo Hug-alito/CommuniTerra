@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :plants, through: :owned_plants
   has_many :plant_sittings
   has_many :plants_to_keep
-  has_many :private_sent_messages, class_name: 'PrivateMessage', foreign_key: 'sender_id'
-  has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
+  # has_many :private_sent_messages, class_name: 'PrivateMessage', foreign_key: 'sender_id'
+  # has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -25,6 +25,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email address please" }
   validates :birthdate, presence: true
   validates :username, presence: true, uniqueness: true
+
+  acts_as_messageable :table_name => "messages",                         # default 'messages'
+                      :required   => [:topic, :body],                     # default [:topic, :body]
+                      :class_name => "ActsAsMessageable::Message",       # default "ActsAsMessageable::Message",
+                      :dependent  => :nullify                            # default :nullify
 
   # after_create :welcome_send
 
