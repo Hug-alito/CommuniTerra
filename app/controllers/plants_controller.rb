@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+  before_action :authenticate_user, only: [:edit, :update]
+
   def new
     @plant = Plant.new
   end
@@ -23,7 +25,7 @@ class PlantsController < ApplicationController
     
     if @plant.nil?
       redirect_to plants_path
-      # mettre un message d'erreur
+      #mettre un message d'erreur
     end
   end
 
@@ -34,5 +36,14 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
   end
 end

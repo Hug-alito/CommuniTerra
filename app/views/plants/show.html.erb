@@ -1,5 +1,4 @@
-<h1>Plants#show</h1>
-<p>Find me in app/views/plants/show.html.erb</p>
+<h1>Plants</h1>
 <%= @plant.common_name%> de son nom latin <%= @plant.latin_name%><br>
 <%= @plant.description%><br>
 <%= @plant.foliage%><br>
@@ -18,3 +17,5 @@
 <%= @plant.planting%><br>
 <%= @plant.harvest%><br>
 <%= @plant.pruning%><br>
+
+<%= link_to "Edit", edit_plant_path(@plant.id) %>
