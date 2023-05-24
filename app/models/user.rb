@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :plants_to_keep
   has_many :private_sent_messages, class_name: 'PrivateMessage', foreign_key: 'sender_id'
   has_many :private_received_messages, class_name: 'PrivateMessage', foreign_key: 'recipient_id'
+  has_many :posts
   has_many :comments
   has_many :likes
   has_many :allotment_users
