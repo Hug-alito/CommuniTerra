@@ -23,7 +23,6 @@ class PlantsController < ApplicationController
     
     if @plant.nil?
       redirect_to plants_path
-      # mettre un message d'erreur
     end
   end
 
