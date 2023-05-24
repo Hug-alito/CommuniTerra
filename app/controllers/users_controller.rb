@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def show
-    @current_user = current_user
     @user = User.find(params[:id])
   end
 
