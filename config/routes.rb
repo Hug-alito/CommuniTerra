@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :listings
   resources :deliveries
 
+  resources :posts do 
+    resources :comments, only: [:create, :update, :destroy]
+    resources :likes, only: [:create, :destroy]
+  end
+
   root to: "static_pages#index"
 
 end
