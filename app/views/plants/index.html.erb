@@ -1,21 +1,13 @@
-<!-- index.html.erb -->
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Liste des plantes</title>
-  <style>
-    .plant-column {
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
-</head>
-<body>
-  <h1>Liste des plantes</h1>
-  <div class="plant-column">
-    <% @plants.each do |plant| %>
-      <%= link_to plant.common_name, plant_path(plant.id) %>
-    <% end %>
-  </div>
-</body>
+  <body>
+    <header>
+      <title>Liste des plantes</title>
+    </header>
+    <h1>Liste des plantes</h1>
+    <div class="plant-column">
+      <% @plants.each do |plant| %>
+        <%= link_to plant.common_name, plant_path(plant.id) %>
+      <% end %>
+    </div>
+  </body>
 </html>

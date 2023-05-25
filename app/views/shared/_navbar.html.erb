@@ -1,9 +1,11 @@
 <div class="px-4 py-5 mx-auto lg:px-8 bg-green-secondary">
   <div class="relative flex items-center justify-evenly lg:justify-evenly">
     <ul class="flex items-center space-x-8">
-      <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Product</a></li>
-      <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Features</a></li>
-      <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Pricing</a></li>
+      <li><%= link_to "Plantes", plants_path, aria: { label: "Plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <li><%= link_to "Potagers partagés", allotments_path, aria: { label: "Potagers partagés" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <%#Hugo dit : pour ceux qui ne sont pas connectés/inscrits : soit on affiche les utilisateurs qui sont vraiment existants soit on fait une page factice avec des faux utilisateurs %>
+      <li><%= link_to "Gardiennage de plantes", allotments_path, aria: { label: "Gardiennage de plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <li><%= link_to "Marché horticole", listings_path, aria: { label: "Marché horticole" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
     </ul>
     <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
       <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
@@ -66,9 +68,9 @@
           </div>
           <nav>
             <ul class="space-y-4">
-              <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
-              <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
-              <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
+              <li><a href="/" aria-label="Plantes" title="Plantes" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
+              <li><a href="/" aria-label="Plantes" title="Plantes" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+              <li><a href="/" aria-label="Gardiennage de plantes" title="Gardiennage de plantes" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
               <li><a href="/" aria-label="Sign in" title="Sign in" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign in</a></li>
               <li>
                 <a
