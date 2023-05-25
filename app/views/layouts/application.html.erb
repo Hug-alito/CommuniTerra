@@ -11,11 +11,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <a href="<%= plants_path %>" class="nav-link text-white">Plants</a>
-    <a href="<%= deliveries_path %>" class="nav-link text-white">Deliveries</a>
-    <a href="<%= allotments_path %>" class="nav-link text-white">Allotments</a>
-    <a href="<%= listings_path %>" class="nav-link text-white">Listings</a>
+  <body class="bg-green-secondary">
+    <nav class="flex justify-end">
+      <a href="<%= plants_path %>" class="nav-link text-green-dark">Plants</a>
+      <a href="<%= deliveries_path %>" class="nav-link text-green-dark">Deliveries</a>
+      <a href="<%= allotments_path %>" class="nav-link text-green-dark">Allotments</a>
+      <a href="<%= listings_path %>" class="nav-link text-green-dark">Listings</a>
+    </nav>
     <%= yield %>
   </body>
 </html>

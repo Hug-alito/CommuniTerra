@@ -1,16 +1,7 @@
-<!-- index.html.erb -->
-<!DOCTYPE html>
-<html>
 <head>
   <title>Liste des plantes</title>
-  <style>
-    .plant-column {
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
 </head>
-<body>
+<body class="bg-green-secondary">
   <h1>Liste des plantes</h1>
   <div class="plant-column">
     <% @plants.each do |plant| %>
@@ -18,4 +9,3 @@
     <% end %>
   </div>
 </body>
-</html>
