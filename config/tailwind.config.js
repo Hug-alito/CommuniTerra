@@ -11,6 +11,15 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        quicksand: ['Quicksand', 'sans-serif'],
+        rozha_one: ['Rozha One'],
+      },
+      fontWeight: {
+        'quicksand-300': '300',
+        'quicksand-400': '400',
+        'quicksand-500': '500',
+        'quicksand-600': '600',
+        'quicksand-700': '700',
       },
           colors: {
         red: {
