@@ -1,7 +1,7 @@
 <div class="px-4 py-5 mx-auto lg:px-8 bg-green-secondary">
   <div class="relative flex items-center justify-around lg:justify-around">
     <ul class="flex items-center space-x-8">
-      <li><%= link_to "Plantes", plants_path, aria: { label: "Plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <%# <li><%= link_to "Plantes", plants_path, aria: { label: "Plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li> %>
       <li><%= link_to "Potagers partagés", allotments_path, aria: { label: "Potagers partagés" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
       <%#Hugo dit : pour ceux qui ne sont pas connectés/inscrits : soit on affiche les utilisateurs qui sont vraiment existants soit on fait une page factice avec des faux utilisateurs %>
       <li><%= link_to "Gardiennage de plantes", allotments_path, aria: { label: "Gardiennage de plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
