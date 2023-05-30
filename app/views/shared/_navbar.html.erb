@@ -1,12 +1,5 @@
-<div class="px-4 py-5 mx-auto lg:px-8 bg-green-secondary">
-  <div class="flex items-center justify-between lg:justify-between">
-    <ul class="flex items-center space-x-8">
-      <li><%= link_to "Plantes", plants_path, aria: { label: "Plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
-      <li><%= link_to "Potagers partagés", allotments_path, aria: { label: "Potagers partagés" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
-      <%#Hugo dit : pour ceux qui ne sont pas connectés/inscrits : soit on affiche les utilisateurs qui sont vraiment existants soit on fait une page factice avec des faux utilisateurs %>
-      <li><%= link_to "Gardiennage de plantes", allotments_path, aria: { label: "Gardiennage de plantes" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
-      <li><%= link_to "Marché horticole", listings_path, aria: { label: "Marché horticole" }, class: "font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
-    </ul>
+<div class="px-4 py-2 mx-auto lg:px-8 bg-green-secondary border border-green-dark">
+  <div class="flex items-center justify-evenly lg:justify-evenly">
     <div class="flex items-center">
       <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
         <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
@@ -15,16 +8,23 @@
           <rect x="14" y="1" width="7" height="6"></rect>
           <rect x="14" y="11" width="7" height="12"></rect>
         </svg>
-        <span class="ml-2 text-xl font-quicksand-700 tracking-wide text-green-primary uppercase">CommuniTerra</span>
+        <span class="ml-2 text-xl font-quicksand-700 tracking-wide text-green-dark">CommuniTerra</span>
       </a>
     </div>
+    <ul class="flex items-center space-x-8">
+      <li><%= link_to "Plantes", plants_path, aria: { label: "Plantes" }, class: "font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <li><%= link_to "Potagers partagés", allotments_path, aria: { label: "Potagers partagés" }, class: "font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <%#Hugo dit : pour ceux qui ne sont pas connectés/inscrits : soit on affiche les utilisateurs qui sont vraiment existants soit on fait une page factice avec des faux utilisateurs %>
+      <li><%= link_to "Gardiennage de plantes", allotments_path, aria: { label: "Gardiennage de plantes" }, class: "font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <li><%= link_to "Marché horticole", listings_path, aria: { label: "Marché horticole" }, class: "font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+    </ul>
     <div class="flex items-center">
       <!-- Empty flex item as a spacer -->
     </div>
     <ul class="flex items-center space-x-8">
-      <li><a href="/" aria-label="Sign in" title="Sign in" class="font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Se Connecter</a></li>
+      <li><a href="/" aria-label="Sign in" title="Sign in" class="font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Se Connecter</a></li>
       <li>
-        <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-small tracking-wide text-green-secondary transition duration-200 rounded shadow-md bg-green-primary hover:text-green-dark focus:shadow-outline focus:outline-none" aria-label="Sign up" title="Sign up">
+        <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-green-secondary transition duration-200 rounded shadow-md bg-green-primary hover:text-green-dark focus:shadow-outline focus:outline-none" aria-label="Sign up" title="Sign up">
           S'inscrire
         </a>
       </li>
