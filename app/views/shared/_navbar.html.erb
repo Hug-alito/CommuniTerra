@@ -22,12 +22,8 @@
       <!-- Empty flex item as a spacer -->
     </div>
     <ul class="flex items-center space-x-8">
-      <li><a href="/" aria-label="Sign in" title="Sign in" class="font-medium tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary">Se Connecter</a></li>
-      <li>
-        <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-green-secondary transition duration-200 rounded shadow-md bg-green-primary hover:text-green-dark focus:shadow-outline focus:outline-none" aria-label="Sign up" title="Sign up">
-          S'inscrire
-        </a>
-      </li>
+      <li><%= link_to "Se connecter", new_user_session_path, aria: { label: "Se connecter" }, class: "font-small tracking-wide text-green-dark transition-colors duration-200 hover:text-green-primary" %></li>
+      <li><%= link_to "S'inscrire", new_user_registration_path, aria: { label: "S'inscrire" }, class: "inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-green-secondary transition duration-200 rounded shadow-md bg-green-primary hover:text-green-dark focus:shadow-outline focus:outline-none" %></li>  
     </ul>
   </div>
 </div>
