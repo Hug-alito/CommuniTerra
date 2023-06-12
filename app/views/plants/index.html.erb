@@ -1,12 +1,9 @@
 <html>
   <body>
-    <header>
-      <title>Liste des plantes</title>
-    </header>
-    <h1>Liste des plantes</h1>
+    <h1 class="plant-title">Les plantes</h1>
     <div class="plant-column">
       <% @plants.each do |plant| %>
-        <%= link_to plant.common_name, plant_path(plant.id) %>
+        <%= link_to plant.common_name, plant_path(plant.id), class: "plant-plant" %>
       <% end %>
     </div>
   </body>

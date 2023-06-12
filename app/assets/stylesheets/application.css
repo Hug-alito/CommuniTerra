@@ -15,6 +15,26 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
 
- 
+
+/* VIEW PLANTS */
+.plant-title {
+  background-color: #DBFFD1;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.plant-column {
+  background-color: #DBFFD1;
+  column-count: 4;
+  column-gap: 20px; /* Ajustez l'espace entre les colonnes selon vos préférences */
+  padding: 10px 20px;
+}
+
+.plant-plant {
+  display: block;
+  margin-bottom: 10px; /* Ajustez la valeur selon l'espacement souhaité entre les lignes */
+}
+
+
