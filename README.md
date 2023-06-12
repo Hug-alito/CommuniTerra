@@ -22,5 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-User.create(id: '1', first_name: 'alice', last_name: 'doe', username: 'alice', phone_number: '0605020104', birthdate: '01/12/2000', email: 'alice@mail.com')
