@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <header>
+      <title>Liste des plantes</title>
+    </header>
+    <h1>Liste des plantes</h1>
+    <div class="plant-column">
+      <% @plants.each do |plant| %>
+        <%= link_to plant.common_name, plant_path(plant.id) %>
+      <% end %>
+    </div>
+  </body>
+</html>

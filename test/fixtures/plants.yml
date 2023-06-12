@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  common_name: MyText
+  latin_name: MyText
+  specie: MyText
+  vegetation: MyText
+  foliage: MyText
+  mature_height: MyText
+  mature_width: MyText
+  maintenance_level: MyText
+  maintenance_description: MyText
+  water_requirement_level: MyText
+  water_requirement_description: MyText
+  cold_resistance_level: MyText
+  cold_resistance_description: MyText
+  density: MyText
+  exposure_level: MyText
+  exposure_description: MyText
+  flowering: MyText
+  planting: MyText
+  harvest: MyText
+  pruning: MyText
+
+two:
+  description: MyText
+  common_name: MyText
+  latin_name: MyText
+  specie: MyText
+  vegetation: MyText
+  foliage: MyText
+  mature_height: MyText
+  mature_width: MyText
+  maintenance_level: MyText
+  maintenance_description: MyText
+  water_requirement_level: MyText
+  water_requirement_description: MyText
+  cold_resistance_level: MyText
+  cold_resistance_description: MyText
+  density: MyText
+  exposure_level: MyText
+  exposure_description: MyText
+  flowering: MyText
+  planting: MyText
+  harvest: MyText
+  pruning: MyText
